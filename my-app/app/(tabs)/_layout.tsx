@@ -40,13 +40,16 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
         }}
       />
-    <Tabs.Screen
-      name="Spotify"
-      options={{
-        title: 'Spotify',
-        tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
-      }}
-    />
+      <Tabs.Screen
+        name="SpotifyLogin"
+        options={{
+          title: 'Spotify',
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+        }}
+      />
+      {/* Hide these from tab bar */}
+      <Tabs.Screen name="SpotifyRegister" options={{ href: null }} />
+      <Tabs.Screen name="ComponentShowcase" options={{ href: null }} />
     </Tabs>
   );
 }

@@ -2,39 +2,44 @@ import React from 'react';
 import { Image } from 'expo-image';
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { Link } from 'expo-router';
+import { LinearGradient } from 'expo-linear-gradient';
+import { Ionicons as IconSymbol } from '@expo/vector-icons';
 
 
-export default function SpotifyLogin() {
+export default function SpotifyProfile() {
 
   return (
-    <View style={styles.container}>
-      {/* Spotify Logo */}
-      <Image
-        source={require('@/assets/images/spotify-logo.png')}
-        style={styles.logo}
-      />
-       <Text style={styles.title}>Spotify</Text>
-      {/* Login Inputs */}
-      <TextInput
-        style={styles.input}
-        placeholder="Username"
-        placeholderTextColor="#525252"
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Password"
-        placeholderTextColor="#525252"
-        secureTextEntry
-      />
-      <TouchableOpacity style={styles.forgotPassword}>
-        <Text style={styles.greytxt}>Forgot Password?</Text>
+    <View>
+        <TouchableOpacity style={{ position: 'absolute', top: 55, left: 20, zIndex: 10 }}>
+            <IconSymbol name="arrow-back" size={30} color="#ffffffc4" />
+        </TouchableOpacity>
+    <LinearGradient
+        colors={['#b18888ff', '#000000ff']}
+        start={{ x: 0.5, y: 0 }}
+        end={{ x: 0.5, y: 1 }}
+        style={{ width: '100%', height: '35%', justifyContent: 'center', marginBottom: 30 }}
+    >
+        <View style={styles.logoRow}>
+            <Image
+                source={require('@/assets/images/fredrinn.jpg')}
+                style={styles.imagePlaceholder}
+            />
+            <View style={{flexDirection: 'column', gap: 5, marginLeft: 10,}}>
+            <Text style={styles.title}>Fredrinn</Text>
+                <View style={{flexDirection: 'row', alignItems: 'center', gap: 5,}}>
+                    <IconSymbol name="eye-off-outline" size={15} color="#ffffffc4" />                    
+                    <Text style={styles.counter}> 0</Text>
+                    <Text style={styles.subtitle}>followers</Text>
+                    <Text style={styles.counter}>⋅</Text>
+                    <Text style={styles.counter}>2</Text>
+                    <Text style={styles.subtitle}>following</Text>                    
+                </View>
+            </View>
+        </View>
+    </LinearGradient>
+      <TouchableOpacity style={styles.Button}>
+        <Text style={styles.loginText}>Edit</Text>
       </TouchableOpacity>
-
-      {/* Login Button */}
-      <TouchableOpacity style={styles.loginButton}>
-        <Text style={styles.loginText}>Sign In</Text>
-      </TouchableOpacity>
-
       {/* Divider */}
       <Text style={styles.orText}>Be Correct with</Text>
 
@@ -80,19 +85,27 @@ const styles = StyleSheet.create({
   },
     logoRow: {
       flexDirection: 'row',
-      justifyContent: 'center', // center them horizontally
+      marginLeft: 20,
+      marginTop: '25%',
       alignItems: 'center',     // align vertically
       marginVertical: 10,
-      gap: 45,                  // add space between (React Native 0.71+)
+      gap: 20,                  // add space between (React Native 0.71+)
     },
   title: {
       fontWeight: 'bold',
       color: '#fff',
       fontSize: 30,
-      marginBottom: 80,
-      letterSpacing: 1.5,
   },
-  logo: {
+  subtitle: {
+    color: '#8d8d8dff',
+    fontSize: 12,
+  },
+    counter: {
+        color: '#fff',
+        fontSize: 12,
+        fontWeight: 'bold',
+    },
+  imagePlaceholder: {
     width: 110,
     height: 110,
     resizeMode: 'contain',
@@ -109,8 +122,9 @@ const styles = StyleSheet.create({
   greytxt: {
     color: '#525252',
   },
-  loginButton: {
-    backgroundColor: '#1DB954',
+  Button: {
+    backgroundColor: 'transparent',
+    outline: '1px solid #1DB954',
     width: '95%',
     padding: 14,
     borderRadius: 30,
