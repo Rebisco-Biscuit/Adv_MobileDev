@@ -97,20 +97,6 @@ export default function SpotifyProfile() {
             marginTop: 45,
         }}>
             <Text style={styles.loginText}>See all playlists</Text>                 
-        </TouchableOpacity> 
-
-                <TouchableOpacity style={{
-            alignItems: 'center',
-            borderWidth: 1,
-            borderColor: '#6e6e6eff',
-            width: '30%',
-            padding: 8,
-            borderRadius: 50,
-            alignSelf: 'center',
-            marginTop: 45,
-        }}
-        onPress={() => router.push('../../login')}>
-            <Text style={styles.loginText}>Logout</Text>                 
         </TouchableOpacity>                
     </View>
   );
