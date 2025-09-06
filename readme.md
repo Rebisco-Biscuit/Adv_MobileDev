@@ -3,6 +3,7 @@
 The navigation flow uses a drawer as the main entry point, with a tab navigator nested inside to handle the core sections like Home, Search, and Library. From the drawer, certain routes such as Profile redirect into the corresponding tab screen to keep the bottom navigation consistent. Each screen is given a clear, unique name to prevent conflicts and ensure smooth routing across layouts. Accessibility is supported through React Navigation’s built-in roles for tabs and drawers, along with proper labels and color contrasts for icons.
 #### 2. Screenshots
 Sign in/up
+<br>
 <img width="187.5" height="406" alt="image" src="https://github.com/user-attachments/assets/512d848a-edcc-43e0-880c-fd4d6c4b00f4" />
 <img width="187" height="406" alt="image" src="https://github.com/user-attachments/assets/1e597a57-5920-4828-917f-ba5a6286e2e9" />
 <br>
