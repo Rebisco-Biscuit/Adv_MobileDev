@@ -13,11 +13,12 @@ export default function SpotifyProfile() {
     <View style={styles.container}>
         <TouchableOpacity
           style={{ position: 'absolute', top: 55, left: 15, zIndex: 10 }}
-        >
-            <MaterialIcons name="arrow-back-ios-new" size={20} color="#ffffffc4" />
+          onPress={() => router.push('../(tabs)')}
+          >
+              <MaterialIcons name="arrow-back-ios-new" size={20} color="#ffffffc4" />
         </TouchableOpacity>
     <LinearGradient
-        colors={['#657286ff', '#121212']}
+        colors={['#9a7183ff', '#121212']}
         start={{ x: 0.5, y: 0 }}
         end={{ x: 0.5, y: 1 }}
         style={{ width: '100%', height: '30%', justifyContent: 'center', marginBottom: 30 }}
@@ -27,14 +28,15 @@ export default function SpotifyProfile() {
                 source={require('@/assets/images/fredrinn.jpg')}
                 style={styles.imagePlaceholder}
             />
-            <View style={{flexDirection: 'column', gap: 5,}}>
+            <View style={{flexDirection: 'column', gap: 5, left: -5,}}>
             <Text style={styles.title}>Fredrinn</Text>
+            <Text style={styles.subtitle}>fredrinnvance6wapo@mail.com</Text>            
                 <View style={{flexDirection: 'row', alignItems: 'center', gap: 5,}}>
                     <IconSymbol name="eye-off-outline" size={15} color="#ffffffc4" />                    
-                    <Text style={styles.counter}> 587</Text>
+                    <Text style={styles.counter}>18,910</Text>
                     <Text style={styles.subtitle}>followers</Text>
                     <Text style={styles.counter}>⋅</Text>
-                    <Text style={styles.counter}>1</Text>
+                    <Text style={styles.counter}>7</Text>
                     <Text style={styles.subtitle}>following</Text>                    
                 </View>
             </View>
@@ -48,9 +50,9 @@ export default function SpotifyProfile() {
                 <Text style={styles.loginText}>...</Text>   
         </View>
 
+<View style={{flexDirection: 'column', gap: 15,}}>
     <Text style={styles.subheading}>Playlists</Text>
-
-        <TouchableOpacity style={{left: 15, top: 15, flexDirection: 'row', gap: 10,}}>
+        <TouchableOpacity style={{left: 15, flexDirection: 'row', gap: 10,}}>
             <Image
             source={require('@/assets/images/fredrinn2.jpg')}
             style={styles.containerlogo}
@@ -61,7 +63,8 @@ export default function SpotifyProfile() {
             </View>
         </TouchableOpacity>
 
-        <TouchableOpacity style={{left: 15, top: 35, flexDirection: 'row', gap: 10,}}>
+
+        <TouchableOpacity style={{left: 15, flexDirection: 'row', gap: 10,}}>
             <Image
             source={require('@/assets/images/fredrinncinema.jpg')}
             style={styles.containerlogo}
@@ -72,20 +75,42 @@ export default function SpotifyProfile() {
             </View>
         </TouchableOpacity>
 
+        <TouchableOpacity style={{left: 15, flexDirection: 'row', gap: 10,}}>
+            <Image
+            source={require('@/assets/images/allstar2.jpg')}
+            style={styles.containerlogo}
+            />
+            <View style={styles.playlistContainer}>
+                <Text style={styles.playlistText}>All Star</Text>
+                <Text style={styles.subtitle}>57,611 saves ⋅ Fredrinn</Text>
+            </View>
+        </TouchableOpacity>        
+</View>
         <TouchableOpacity style={{
-            justifyContent: 'center',
             alignItems: 'center',
-            flexDirection: 'row',
-            gap: 10,
             borderWidth: 1,
             borderColor: '#6e6e6eff',
             width: '40%',
             padding: 8,
             borderRadius: 50,
             alignSelf: 'center',
-            marginTop: 65,
+            marginTop: 45,
         }}>
             <Text style={styles.loginText}>See all playlists</Text>                 
+        </TouchableOpacity> 
+
+                <TouchableOpacity style={{
+            alignItems: 'center',
+            borderWidth: 1,
+            borderColor: '#6e6e6eff',
+            width: '30%',
+            padding: 8,
+            borderRadius: 50,
+            alignSelf: 'center',
+            marginTop: 45,
+        }}
+        onPress={() => router.push('../../login')}>
+            <Text style={styles.loginText}>Logout</Text>                 
         </TouchableOpacity>                
     </View>
   );

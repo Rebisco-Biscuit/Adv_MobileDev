@@ -33,17 +33,17 @@ export default function SpotifyHome() {
       </View>
 
       <ScrollView showsVerticalScrollIndicator={true}>
-        <View style={[styles.headerRow, { alignItems: 'center', justifyContent: 'center' }]}>
-          <View style={styles.playlistContainer}>
-            <Image
-              source={require('@/assets/images/fredrinncinema.jpg')}
-              style={styles.playlistImage}
-            />
-            <View style={{ flexDirection: 'column' }}>
-              <Text style={styles.playlistTitle}>Chill</Text>
-              <Text style={styles.playlistTitle}>Playlist</Text>
-            </View>
+      <View style={[styles.headerRow, { alignItems: 'center', justifyContent: 'center' }]}>
+        <View style={styles.playlistContainer}>
+          <Image
+            source={require('@/assets/images/fredrinncinema.jpg')}
+            style={styles.playlistImage}
+          />
+          <View style={{ flexDirection: 'column' }}>
+            <Text style={styles.playlistTitle}>Chill</Text>
+            <Text style={styles.playlistTitle}>Playlist</Text>
           </View>
+        </View>
           <View style={styles.playlistContainer}>
             <Image
               source={{ uri: 'https://upload.wikimedia.org/wikipedia/en/9/9b/Tame_Impala_-_Currents.png' }}
@@ -114,7 +114,7 @@ export default function SpotifyHome() {
           </View>
           <View style={styles.playlistContainer}>
             <Image
-              source={require('@/assets/images/fredsparkol.jpg')}
+              source={require('@/assets/images/fredgwapo.jpg')}
               style={styles.playlistImage}
             />
             <View style={{ flexDirection: 'column' }}>
@@ -205,6 +205,53 @@ export default function SpotifyHome() {
           </View>
         </ScrollView>
 
+        <View style={{ flexDirection: 'row', gap: 20,paddingLeft: 15, }}>
+          <Image
+            source={{uri: 'https://i.scdn.co/image/ab6761610000517436e8f783dc68dcb1be1003a2'}}
+            style={{width: 55, height: 55, borderRadius: 100,}}
+          />
+          <View style={{ flexDirection: 'column' }}>
+            <Text style={styles.bigPlaylistsTitle}>For fans of</Text>
+            <Text style={[styles.title, {left: -15,}]}>Artemas</Text>
+          </View>
+        </View>
+
+        <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+          <View style={{ flexDirection: 'row', gap: 20, paddingBottom: 20, paddingLeft: 15, top: 15, marginBottom: 20, }}>
+            <View style={{ flexDirection: 'column' }}>
+              <Image
+                source={{uri: 'https://thisis-images.spotifycdn.com/37i9dQZF1DZ06evO0qAhSF-default.jpg'}}
+                style={styles.bigPlaylists}
+              />
+              <Text style={styles.bigPlaylistsTitle}>This is Artemas. The</Text>
+              <Text style={styles.bigPlaylistsTitle}>essential tracks, all in...</Text>              
+            </View>  
+            <View style={{ flexDirection: 'column' }}>
+              <Image
+                source={{uri: 'https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/radio/artist/0PCCGZ0wGLizHt2KZ7hhA2/en'}}
+                style={styles.bigPlaylists}
+              />
+              <Text style={styles.bigPlaylistsTitle}>The Neighbourhood,</Text>
+              <Text style={styles.bigPlaylistsTitle}>Diplo, Artemas, Monte...</Text>
+            </View>                      
+            <View style={{ flexDirection: 'column' }}>
+              <Image
+                source={{uri: 'https://i.scdn.co/image/ab67706f0000000269d006c6502fcf92539e9394'}}
+                style={styles.bigPlaylists}
+              />
+              <Text style={styles.bigPlaylistsTitle}>Sabrina Carpenter,</Text>
+              <Text style={styles.bigPlaylistsTitle}>Lady Gaga, sombr, Ch...</Text>
+            </View>
+            <View style={{ flexDirection: 'column' }}>
+              <Image
+                source={{uri: 'https://cdn-images.dzcdn.net/images/cover/862ab860ff69c30deeb5979db6e46b62/0x1900-000000-80-0-0.jpg'}}
+                style={styles.bigPlaylists}
+              />
+              <Text style={styles.bigPlaylistsTitle}>Metro Boomin, More,</Text>
+              <Text style={styles.bigPlaylistsTitle}>Someone and m...</Text>
+            </View>
+          </View>
+        </ScrollView>
 
       </ScrollView>
     </View>

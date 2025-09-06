@@ -1,24 +1,28 @@
-import { Drawer } from 'expo-router/drawer';
-import { ThemeProvider, DarkTheme, DefaultTheme } from '@react-navigation/native';
-import { StatusBar } from 'expo-status-bar';
+import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
+import { Stack } from 'expo-router';
+import { StatusBar } from 'expo-status-bar';
+import 'react-native-reanimated';
 import { useColorScheme } from '@/hooks/useColorScheme';
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
   const [loaded] = useFonts({
-    GothamMedium: require('../assets/fonts/gotham-medium.ttf'),
+    SpaceMono: require('@/assets/fonts/SpaceMono-Regular.ttf'),
   });
 
-  if (!loaded) return null;
+  if (!loaded) {
+    // Async font loading only occurs in development.
+    return null;
+  }
 
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Drawer>
-        <Drawer.Screen name="(tabs)" options={{ headerShown: false, title: 'Home' }} />
-        
-        <Drawer.Screen name="profileRedirect" options={{ headerShown: false, title: 'Profile' }} />
-      </Drawer>
+      <Stack initialRouteName="login">
+        <Stack.Screen name="(drawer)" options={{ headerShown: false }} />
+        <Stack.Screen name="login" options={{ headerShown: false }} />
+        <Stack.Screen name="signup" options={{ headerShown: false }} />        
+      </Stack>
       <StatusBar style="auto" />
     </ThemeProvider>
   );

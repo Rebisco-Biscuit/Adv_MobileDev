@@ -5,22 +5,32 @@ import { StyleSheet, Text, View, ScrollView, TouchableOpacity } from 'react-nati
 import FeatherIcon from 'react-native-vector-icons/Feather';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import { DrawerNavigationProp } from '@react-navigation/drawer';
+import { useNavigation } from '@react-navigation/native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
-export default function SpotifyLibrary() {
-        const [loaded] = useFonts({
-        GothamMedium: require('@/assets/fonts/gotham-medium.ttf'),
-        });
+type DrawerParamList = {
+  "(tabs)": undefined; 
+};
 
+export default function SpotifyLibrary() {
+    const [loaded] = useFonts({
+    GothamMedium: require('@/assets/fonts/gotham-medium.ttf'),
+    });
+
+    const navigation = useNavigation<DrawerNavigationProp<DrawerParamList>>();
+    
     return(
     <View style={{ flex: 1, backgroundColor: '#121212' }}>
       <View style={styles.stickyHeader}>
         <View style={[styles.headerRow, { alignItems: 'center' }]}>
-          <Image
-            source={require('@/assets/images/fredrinn.jpg')}
-            style={styles.logo}
-          />
+            <TouchableOpacity onPress={() => navigation.openDrawer()}>
+                <Image
+                    source={require('@/assets/images/fredrinn.jpg')}
+                    style={styles.logo}
+                />
+            </TouchableOpacity>  
           <Text style={{ color: '#fff', fontSize: 24, fontWeight: 'bold' }}>Your Library</Text>
           <View style={{ flex: 1, gap: 20, }} />
           <FeatherIcon name="search" size={24} color="#fff"/>
@@ -39,7 +49,7 @@ export default function SpotifyLibrary() {
 <ScrollView showsVerticalScrollIndicator={true}>
         <View style={[styles.headerRow, { alignItems: 'center', marginTop: -5,}]}>
             <FontAwesome5 name="sort-amount-up" size={14} color="#fff" style={{ padding: 15, }} />
-            <Text style={{ color: '#fff', fontSize: 14, textAlignVertical: 'center', }}>Recents</Text>
+            <Text style={{ color: '#fff', fontSize: 14, textAlignVertical: 'center', left: -15,}}>Recents</Text>
             <View style={{ flex: 1, gap: 20, }} />
             <MaterialIcons name='grid-view' size={20} color='#fff' style={{ padding: 15, }} />
         </View>
@@ -54,7 +64,7 @@ export default function SpotifyLibrary() {
                 <Text style={styles.playlistText}>Liked Songs</Text>
                 <View style={{flexDirection: 'row',}}>
                     <AntDesign name="pushpin" size={12} color="#1ed760" style={{marginRight: 5,}}/>
-                    <Text style={styles.subtitle}>Playlist ⋅ 192 songs</Text>
+                    <Text style={styles.subtitle}>Playlist ⋅ 2,192 songs</Text>
                 </View>
             </View>            
         </TouchableOpacity> 
@@ -72,6 +82,17 @@ export default function SpotifyLibrary() {
                 </View>
             </View>            
         </TouchableOpacity>
+
+        <TouchableOpacity style={{left: 15, flexDirection: 'row', gap: 10,}}>
+            <Image
+            source={{uri: 'https://i.scdn.co/image/ab67616d0000b2736ed9aef791159496b286179f'}}
+            style={styles.containerlogo}
+            />
+            <View style={styles.playlistContainer}>
+                <Text style={styles.playlistText}>METRO BOOMIN PRESENTS SP...</Text>
+                <Text style={styles.subtitle}>Album ⋅ Metro Boomin</Text>
+            </View>            
+        </TouchableOpacity>          
 
         <TouchableOpacity style={{left: 15, flexDirection: 'row', gap: 10,}}>
             <Image
@@ -94,6 +115,17 @@ export default function SpotifyLibrary() {
                 <Text style={styles.subtitle}>Artist</Text>
             </View>            
         </TouchableOpacity>
+
+        <TouchableOpacity style={{left: 15, flexDirection: 'row', gap: 10,}}>
+            <Image
+            source={{uri: 'https://i.scdn.co/image/ab6761610000517436e8f783dc68dcb1be1003a2'}}
+            style={[styles.containerlogo, {borderRadius: 60,}]}
+            />
+            <View style={styles.playlistContainer}>
+                <Text style={styles.playlistText}>Artemas</Text>
+                <Text style={styles.subtitle}>Artist</Text>
+            </View>            
+        </TouchableOpacity>        
 
         <TouchableOpacity style={{left: 15, flexDirection: 'row', gap: 10,}}>
             <Image
@@ -137,7 +169,7 @@ export default function SpotifyLibrary() {
                 <Text style={styles.playlistText}>Top Gaming Tracks</Text>
                 <Text style={styles.subtitle}>Playlist ⋅ Made for Fredrinn</Text>
             </View>            
-        </TouchableOpacity>                     
+        </TouchableOpacity>                           
     </View>
     </ScrollView>           
 </View>
