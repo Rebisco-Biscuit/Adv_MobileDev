@@ -37,15 +37,51 @@ export default function settings() {
       </View>
     </View>
 </TouchableOpacity>    
-    <View style={{flexDirection: 'column', gap: 20, top: 20}}>
-      <Text style={styles.text}>Account</Text>
-      <Text style={styles.text}>Data-saving and offline</Text>
-      <Text style={styles.text}>Content and display</Text>
-      <Text style={styles.text}>Privacy and social</Text>
-      <Text style={styles.text}>Media quality</Text>
-      <Text style={styles.text}>Notifications</Text>
-      <Text style={styles.text}>Apps and devices</Text>
-      <Text style={styles.text}>About</Text>   
+    <View style={{flexDirection: 'column', gap: 30, top: 20}}>
+      <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+        <Text style={styles.text}>Account</Text>
+        <MaterialIcons name="arrow-forward-ios" size={20} color="#ffffffc4"/>        
+      </View>
+      
+      <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+        <Text style={styles.text}>Data-saving and offline</Text>
+        <MaterialIcons name="arrow-forward-ios" size={20} color="#ffffffc4"/>        
+      </View>
+
+      <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+        <Text style={styles.text}>Playback</Text>
+        <MaterialIcons name="arrow-forward-ios" size={20} color="#ffffffc4"/>        
+      </View>
+
+      <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+        <Text style={styles.text}>Content and display</Text>
+        <MaterialIcons name="arrow-forward-ios" size={20} color="#ffffffc4"/>        
+      </View>
+
+      <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+        <Text style={styles.text}>Privacy and social</Text>
+        <MaterialIcons name="arrow-forward-ios" size={20} color="#ffffffc4"/>        
+      </View>
+
+      <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+        <Text style={styles.text}>Media quality</Text>
+        <MaterialIcons name="arrow-forward-ios" size={20} color="#ffffffc4"/>        
+      </View>
+
+      <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+        <Text style={styles.text}>Notifications</Text>
+        <MaterialIcons name="arrow-forward-ios" size={20} color="#ffffffc4"/>        
+      </View>
+
+      <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+        <Text style={styles.text}>Apps and devices</Text>
+        <MaterialIcons name="arrow-forward-ios" size={20} color="#ffffffc4"/>        
+      </View>
+
+      <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+        <Text style={styles.text}>About</Text>
+        <MaterialIcons name="arrow-forward-ios" size={20} color="#ffffffc4"/>        
+      </View>      
     </View>
     
       <TouchableOpacity style={{
