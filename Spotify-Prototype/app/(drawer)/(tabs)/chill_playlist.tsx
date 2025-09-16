@@ -221,6 +221,7 @@ const styles = StyleSheet.create({
   playlistImage: {
     width: 230,
     height: 230,
+    marginTop: 100,
     alignSelf: 'center',
     borderRadius: 5,
   },
@@ -242,6 +243,7 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: '#2f2f2f',
+
     paddingHorizontal: 20,
     borderRadius: 8,
     marginRight: 12,
