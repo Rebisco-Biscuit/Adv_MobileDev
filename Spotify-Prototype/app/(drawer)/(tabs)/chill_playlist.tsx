@@ -8,7 +8,8 @@ import {
   View, 
   ScrollView,
   Modal,
-  Pressable
+  Pressable,
+  Alert
 } from 'react-native';
 import { useRouter } from 'expo-router';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -21,13 +22,11 @@ export default function MPlaylist() {
   const router = useRouter();
   const buttons = ['Add', 'Edit', 'Sort', 'Name'];
 
-  // State for modal visibility, new song, and artist name
   const [modalVisible, setModalVisible] = useState(false);
   const [newSong, setNewSong] = useState('');
   const [artistName, setArtistName] = useState('');
-  const [playlistSongs, setPlaylistSongs] = useState([]); // Array to store song and artist name
+  const [playlistSongs, setPlaylistSongs] = useState([]);
 
-  // Load playlist data from AsyncStorage on component mount
   useEffect(() => {
     const loadPlaylist = async () => {
       try {
@@ -42,7 +41,6 @@ export default function MPlaylist() {
     loadPlaylist();
   }, []);
 
-  // Save playlist data to AsyncStorage
   const savePlaylist = async (updatedPlaylist) => {
     try {
       await AsyncStorage.setItem('playlist', JSON.stringify(updatedPlaylist));
@@ -64,8 +62,29 @@ export default function MPlaylist() {
       setNewSong('');
       setArtistName('');
       setModalVisible(false);
-      console.log("Added song:", newSongObj);
     }
+  };
+
+  const onDeleteSong = (index) => {
+    // Confirm deletion
+    Alert.alert(
+      "Delete Song",
+      "Are you sure you want to delete this song?",
+      [
+        {
+          text: "Cancel",
+          style: "cancel"
+        },
+        {
+          text: "Delete", 
+          onPress: () => {
+            const updatedPlaylist = playlistSongs.filter((_, i) => i !== index);
+            savePlaylist(updatedPlaylist);  // Save updated playlist to AsyncStorage
+          },
+          style: "destructive"
+        }
+      ]
+    );
   };
 
   return (
@@ -180,9 +199,14 @@ export default function MPlaylist() {
       <View style={{ paddingHorizontal: 20, paddingTop: 10 }}>
         {playlistSongs.length > 0 && <Text style={{ color: '#fff', fontWeight: 'bold', marginBottom: 5 }}>Songs in Playlist:</Text>}
         {playlistSongs.map((songObj, i) => (
-          <Text key={i} style={{ color: '#ccc', fontSize: 16, marginBottom: 3 }}>
-            {songObj.song} - {songObj.artist}
-          </Text>
+          <View key={i} style={styles.songRow}>
+            <Text style={{ color: '#ccc', fontSize: 16, marginBottom: 3 }}>
+              {songObj.song} - {songObj.artist}
+            </Text>
+            <TouchableOpacity onPress={() => onDeleteSong(i)}>
+              <MaterialIcons name="delete" size={24} color="#ff4444" />
+            </TouchableOpacity>
+          </View>
         ))}
       </View>
     </View>
@@ -197,7 +221,6 @@ const styles = StyleSheet.create({
   playlistImage: {
     width: 230,
     height: 230,
-    // boxShadow only works on web, for RN use shadow props if needed
     alignSelf: 'center',
     borderRadius: 5,
   },
@@ -218,7 +241,7 @@ const styles = StyleSheet.create({
     color: "#8d8d8dff",
   },
   button: {
-    backgroundColor: '#2f2f2f', // Darker background for better contrast
+    backgroundColor: '#2f2f2f',
     paddingHorizontal: 20,
     borderRadius: 8,
     marginRight: 12,
@@ -232,7 +255,7 @@ const styles = StyleSheet.create({
   },
   modalBackground: {
     flex: 1,
-    backgroundColor: '#000000cc', // semi-transparent black
+    backgroundColor: '#000000cc',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -274,5 +297,10 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     fontSize: 16,
   },
+  songRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 10,
+  },
 });
-
