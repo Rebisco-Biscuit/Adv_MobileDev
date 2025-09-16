@@ -46,6 +46,10 @@ export default function TabLayout() {
         options={{ headerShown: false, tabBarItemStyle: {display: 'none'}}}
       />
       <Tabs.Screen
+        name="chill_playlist"
+        options={{ headerShown: false, tabBarItemStyle: {display: 'none'}}}
+      />      
+      <Tabs.Screen
         name="create"
         options={{
           title: "Create",

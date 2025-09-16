@@ -4,12 +4,14 @@ import { Image } from 'expo-image';
 import { StyleSheet, Text, View, ScrollView, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { DrawerNavigationProp } from '@react-navigation/drawer';
+import { useRouter } from 'expo-router';
 
 type DrawerParamList = {
   "(tabs)": undefined; 
 };
 
 export default function SpotifyHome() {
+  const router = useRouter();
   const [loaded] = useFonts({
     GothamMedium: require('@/assets/fonts/gotham-medium.ttf'),
   });  
@@ -66,7 +68,7 @@ export default function SpotifyHome() {
                 <Text style={styles.playlistTitle}>Laughter</Text>
               </View>            
             </View>
-          <View style={styles.playlistContainer}>
+          <TouchableOpacity style={styles.playlistContainer} onPress={() => router.push('../chill_playlist')}>
             <Image
               source={require('@/assets/images/fredrinn2.jpg')}
               style={styles.playlistImage}
@@ -75,11 +77,12 @@ export default function SpotifyHome() {
               <Text style={styles.playlistTitle}>Maoy</Text>
               <Text style={styles.playlistTitle}>Playlist</Text>
             </View>            
-          </View>
+          </TouchableOpacity>
         </View>
 
         <View style={[styles.headerRow, { alignItems: 'center', justifyContent: 'center', marginTop: 10 }]}>
-          <View style={styles.playlistContainer}>
+
+        <View style={styles.playlistContainer}>    
             <Image
               source={{ uri: 'https://i.scdn.co/image/ab67616d0000b27399cf928a0bc891cdf194efe6' }}
               style={styles.playlistImage}
@@ -88,7 +91,7 @@ export default function SpotifyHome() {
               <Text style={styles.playlistTitle}>DOOR</Text>
               <Text style={styles.playlistTitle}>TO DUSK</Text>              
             </View>
-          </View>
+          </View> 
           <View style={styles.playlistContainer}>
             <Image
               source={{uri: 'https://static.wikia.nocookie.net/ladygaga/images/2/2d/BornThisWay-DeluxeEdition.jpg/revision/latest/scale-to-width-down/3500?cb=20111120030308'}}
