@@ -17,6 +17,7 @@ import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import Entypo from '@expo/vector-icons/Entypo';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Swipeable } from 'react-native-gesture-handler'; // Import the Swipeable component
 
 export default function MPlaylist() {
   const router = useRouter();
@@ -87,6 +88,17 @@ export default function MPlaylist() {
     );
   };
 
+  const renderRightActions = (index) => {
+    return (
+      <TouchableOpacity
+        style={styles.deleteButton}
+        onPress={() => onDeleteSong(index)}
+      >
+        <MaterialIcons name="delete" size={24} color="#fff" />
+      </TouchableOpacity>
+    );
+  };
+
   return (
     <View style={styles.container}>
       <TouchableOpacity
@@ -132,19 +144,23 @@ export default function MPlaylist() {
             <Ionicons name="shuffle" size={20} color="#8d8d8dff" />
             <Ionicons name="pause-circle-sharp" size={48} color="#1DB954" />
           </View>
-        </View>
-
-        <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={{ paddingHorizontal: 10 }}>
+          <ScrollView 
+          horizontal={true} 
+          showsHorizontalScrollIndicator={false} 
+          style={{ paddingHorizontal: 10}} // Added marginTop to avoid overlap
+          contentContainerStyle={{ flexDirection: 'row', alignItems: 'center' }} // Ensures horizontal layout of buttons
+        >
           {buttons.map((btn, index) => (
             <TouchableOpacity
               key={index}
               style={styles.button}
               onPress={btn === 'Add' ? onAddPress : null}
             >
-              <Text style={styles.buttonText}>{btn}</Text>
+              <Text style={styles.smallTxt}>{btn}</Text>
             </TouchableOpacity>
           ))}
-        </ScrollView>
+        </ScrollView>          
+        </View>
       </LinearGradient>
 
       {/* Modal for adding song and artist */}
@@ -196,17 +212,16 @@ export default function MPlaylist() {
       </Modal>
 
       {/* Display added songs with artist names */}
-      <View style={{ paddingHorizontal: 20, paddingTop: 10 }}>
+      <View style={{ paddingHorizontal: 20, paddingTop: 50 }}>
         {playlistSongs.length > 0 && <Text style={{ color: '#fff', fontWeight: 'bold', marginBottom: 5 }}>Songs in Playlist:</Text>}
         {playlistSongs.map((songObj, i) => (
-          <View key={i} style={styles.songRow}>
-            <Text style={{ color: '#ccc', fontSize: 16, marginBottom: 3 }}>
-              {songObj.song} - {songObj.artist}
-            </Text>
-            <TouchableOpacity onPress={() => onDeleteSong(i)}>
-              <MaterialIcons name="delete" size={24} color="#ff4444" />
-            </TouchableOpacity>
-          </View>
+          <Swipeable key={i} renderRightActions={() => renderRightActions(i)}>
+            <View style={styles.songRow}>
+              <Text style={{ color: '#ccc', fontSize: 16, marginBottom: 3 }}>
+                {songObj.song} - {songObj.artist}
+              </Text>
+            </View>
+          </Swipeable>
         ))}
       </View>
     </View>
@@ -243,12 +258,12 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: '#2f2f2f',
-
+    paddingVertical: 5,
     paddingHorizontal: 20,
-    borderRadius: 8,
+    borderRadius: 100,
     marginRight: 12,
     elevation: 2,
-  },
+  },  
   buttonText: {
     color: '#ffffff',
     fontWeight: '600',
@@ -304,5 +319,13 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: 10,
+  },
+  deleteButton: {
+    backgroundColor: '#ff4444',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100%',
+    width: 80,
+    borderRadius: 5,
   },
 });
