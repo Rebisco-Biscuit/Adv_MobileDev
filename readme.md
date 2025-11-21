@@ -22,9 +22,8 @@ Settings
 <br>
 <img width="187.5" height="406" alt="image" src="https://github.com/user-attachments/assets/6f0604df-12a3-4e6b-acfe-a4ddd572ebcd" />
 <br>
-Profile
+Edit Profile
 <br>
-<img width="187.5" height="406" alt="image" src="https://github.com/user-attachments/assets/8629ea05-a90b-49e5-87a8-2ee85dd68621" />
 <img width="187.5" height="406" alt="image" src="https://github.com/user-attachments/assets/40c7310f-c360-4772-b956-1445a3407d30" />
 <img width="187.5" height="406" alt="image" src="https://github.com/user-attachments/assets/ac76e8ff-3a44-48ca-8f03-4d9bb597f2bc" />
 <img width="187.5" height="406" alt="image" src="https://github.com/user-attachments/assets/4006bdca-7477-4718-aaf3-069df88ce31e" />
