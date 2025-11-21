@@ -22,6 +22,15 @@ Settings
 <br>
 <img width="187.5" height="406" alt="image" src="https://github.com/user-attachments/assets/6f0604df-12a3-4e6b-acfe-a4ddd572ebcd" />
 <br>
+Edit Profile
+<br>
+<img width="187.5" height="406" alt="image" src="https://github.com/user-attachments/assets/40c7310f-c360-4772-b956-1445a3407d30" />
+<img width="187.5" height="406" alt="image" src="https://github.com/user-attachments/assets/ac76e8ff-3a44-48ca-8f03-4d9bb597f2bc" />
+<img width="187.5" height="406" alt="image" src="https://github.com/user-attachments/assets/4006bdca-7477-4718-aaf3-069df88ce31e" />
+<img width="187.5" height="406" alt="image" src="https://github.com/user-attachments/assets/59452c08-cb8e-4459-a6c0-14281a4b7630" />
+<img width="187.5" height="406" alt="image" src="https://github.com/user-attachments/assets/183ea0f5-7105-40c5-bf92-618dc5796553" />
+<br>
+<br>
 ## Map App
 <img width="187.5" height="406" alt="image" src="https://github.com/user-attachments/assets/9fb3d833-e645-4b01-9a55-4a02c7d8f14d" />
 <img width="187.5" height="406" alt="image" src="https://github.com/user-attachments/assets/4ad17706-27e1-4b6d-a281-c2750c388674" />
